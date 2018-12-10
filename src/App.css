@@ -1,32 +1,337 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+*::selection {
+  color: black;
+  background-color: #fa494d;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (min-width: 768px) {
+  .parent-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+    background-color: #fa494d;
   }
-  to {
-    transform: rotate(360deg);
+
+  .App-header {
+    background-color: #9179f1;
+  }
+
+  .App-header > h1 {
+    color: white;
+    padding: 1rem;
+  }
+
+  .App-header > h2 {
+    color: white;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .scoreboard {
+    height: 200px;
+    width: 400px;
+    border: 5px white solid;
+    align-self: center;
+    margin: 1rem;
+    position: relative;
+  }
+
+  .score-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 40px;
+    width: 100px;
+    background-color: black;
+    border: 2px white solid;
+    color: white;
+  }
+
+  .score-div:hover {
+    background-color: white;
+    border: 2px black solid;
+    color: black;
+    transition: background-color 500ms, border 500ms, color 500ms;
+  }
+
+  .score-div > h1 {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  #player-score {
+    left: -55px;
+    top: 78px;
+  }
+
+  #computer-score {
+    right: -55px;
+    top: 78px;
+  }
+
+  .score {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: absolute;
+    top: 40px;
+    left: 120px;
+  }
+
+  .score-text {
+    color: white;
+    font-size: 4rem;
+  }
+
+  #colon {
+    font-size: 4rem;
+    padding: 0.5rem 2rem;
+    font-weight: bold;
+    color: white;
+  }
+
+  .winner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .winner-message-div {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin: 1rem;
+  }
+
+  .winner-message-div > h1 {
+    margin: 0 0.5rem;
+    color: white;
+  }
+
+  .winner-message-div > h4 {
+    color: white;
+  }
+
+  .winner > h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin: 0 1rem 0 1rem;
+  }
+
+  .choices {
+    padding: 0;
+    margin-top: 1.5rem;
+  }
+
+  .rps {
+    background-color: rgba(255, 255, 255, 0.801);
+    height: 6rem;
+    width: 6rem;
+    border: 3px #9179f1 solid;
+    border-radius: 100%;
+    padding: 1rem;
+    margin: 0 0.5rem 0 0.5rem;
+  }
+
+  .rps:hover {
+    height: 6rem;
+    width: 6rem;
+    border: white solid;
+    background-color: #9179f1;
+    transition: border 400ms, background-color 200ms;
+  }
+
+  .end-game {
+    height: 70px;
+    width: 200px;
+    align-self: center;
+    background-color: #fa494d;
+    border: 3px white solid;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1.5rem;
+  }
+
+  .end-game:hover {
+    height: 75px;
+    width: 220px;
+    background-color: white;
+    border: 3px #fa494d solid;
+    color: #fa494d;
+    transition: ease-in-out 300ms;
+  }
+
+  .end-game:active {
+    background-color: white;
+    border: 4px #9179f1 solid;
+    color: #fa494d;
+    transition: ease-in-out 300ms;
+  }
+}
+
+
+@media only screen and (min-width: 300px) {
+  .parent-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    text-align: center;
+    background-color: #fa494d;
+  }
+
+  .App-header {
+    background-color: #9179f1;
+  }
+
+  .App-header > h1 {
+    color: white;
+    padding: 1rem;
+  }
+
+  .App-header > h2 {
+    color: white;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .scoreboard {
+    height: 150px;
+    width: 300px;
+    border: 4px white solid;
+    align-self: center;
+    margin: 1rem;
+    position: relative;
+  }
+
+  .score-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 30px;
+    width: 80px;
+    background-color: black;
+    border: 2px white solid;
+    color: white;
+  }
+
+  .score-div:hover {
+    background-color: white;
+    border: 2px black solid;
+    color: black;
+    transition: background-color 500ms, border 500ms, color 500ms;
+  }
+
+  .score-div > h1 {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  #player-score {
+    left: -38px;
+    top: 55px;
+  }
+
+  #computer-score {
+    right: -38px;
+    top: 55px;
+  }
+
+  .score {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: absolute;
+    top: 25px;
+    left: 75px;
+  }
+
+  .score-text {
+    color: white;
+    font-size: 3.5rem;
+  }
+
+  #colon {
+    font-size: 3.5rem;
+    padding: 0.5rem 2rem;
+    font-weight: bold;
+    color: white;
+  }
+
+  .winner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .winner-message-div {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin: 1rem;
+  }
+
+  .winner-message-div > h1 {
+    margin: 0 0.2rem;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .winner-message-div > h4 {
+    font-size: 1rem;
+    color: white;
+  }
+
+  .winner > h1 {
+    font-size: 2rem;
+    color: white;
+    /* margin: 0 1rem 0 1rem; */
+  }
+
+  #draw{
+    margin: 0 0.2rem;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .choices {
+    padding: 0;
+    margin-top: 1.5rem;
+  }
+
+  .rps {
+    background-color: rgba(255, 255, 255, 0.801);
+    height: 6rem;
+    width: 6rem;
+    border: 3px #9179f1 solid;
+    border-radius: 100%;
+    padding: 1rem;
+    margin: 0 0.5rem 0 0.5rem;
+  }
+  .end-game {
+    height: 50px;
+    width: 150px;
+    align-self: center;
+    background-color: #fa494d;
+    border: 3px white solid;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 1rem;
+  }
+
+  .end-game:active {
+    background-color: white;
+    border: 4px #9179f1 solid;
+    color: #fa494d;
+    transition: ease-in-out 300ms;
   }
 }
